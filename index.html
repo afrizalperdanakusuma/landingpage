@@ -296,11 +296,11 @@
                 Setiap kali promosi, calon pembeli harus DM dulu. Belum tentu balas. Belum tentu jadi deal. Bagaimana kalau ada yang menjual untuk Anda—24 jam sehari, 7 hari seminggu?
             </p>
 
-            <!-- Hero CTA -->
+            <!-- Hero CTA - Tombol 1: Scroll ke Pricing -->
             <div class="flex flex-col items-center gap-4 animate-fade-up" style="animation-delay: 0.2s;">
-                <button onclick="trackAddToCart()" class="btn-primary px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full max-w-xs text-center cursor-pointer">
+                <a href="#pricing" class="btn-primary px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full max-w-xs text-center cursor-pointer">
                     Amankan Slot
-                </button>
+                </a>
                 <p class="text-sm text-muted text-center">
                     Hanya 5 slot tersisa untuk bulan ini
                 </p>
@@ -727,6 +727,7 @@
                         </li>
                     </ul>
 
+                    <!-- Tombol 2 (CTA UTAMA): Fire AddToCart + Redirect -->
                     <button onclick="trackAddToCart()" class="btn-primary block text-center px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full cursor-pointer">
                         Amankan Slot
                     </button>
@@ -788,7 +789,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer px-6 pb-6">
-                        <p class="text-muted">Estimasi pengerjaan 3-5 hari kerja tergantung kompleksitas. Untuk kebutuhan urgent, bisa diskusikan untuk prioritas pengerjaan.</p>
+                        <p class="text-muted">Estimasi pengerjaan 3-5 hari kerja tergantung kompleksitas. Untuk kebutuhan urgent, bisa diskusikan untuk prioritas pengerjaan。</p>
                     </div>
                 </div>
 
@@ -845,9 +846,10 @@
                     Tidak perlu tunggu lagi. Sekarang saatnya bisnis Anda tampil profesional dan bekerja otomatis meski Anda sedang istirahat.
                 </p>
 
-                <button onclick="trackAddToCart()" class="btn-primary inline-block px-10 py-4 rounded-2xl text-white font-semibold text-lg cursor-pointer">
+                <!-- Tombol 3: Scroll ke Pricing -->
+                <a href="#pricing" class="btn-primary inline-block px-10 py-4 rounded-2xl text-white font-semibold text-lg cursor-pointer">
                     Amankan Slot
-                </button>
+                </a>
                 <p class="text-sm text-muted mt-4">
                     Konsultasi gratis, tanpa komitmen
                 </p>
@@ -868,7 +870,7 @@
         // URL Pembayaran - GANTI DENGAN URL ANDA
         const PAYMENT_URL = 'https://afnastore.myr.id/pl/jasa-pembuatan-landing-page';
 
-        // ========== FUNGSI TRACK ADD TO CART ==========
+        // ========== FUNGSI TRACK ADD TO CART (HANYA UNTUK CTA UTAMA) ==========
         function trackAddToCart() {
             // Fire Meta Pixel AddToCart Event
             if (typeof fbq !== 'undefined') {
