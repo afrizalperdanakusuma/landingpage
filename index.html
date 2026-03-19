@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jasa Pembuatan Landing Page Profesional</title>
+    
+    <!-- ========== META PIXEL CODE - GANTI YOUR_PIXEL_ID DENGAN PIXEL ID ANDA ========== -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // GANTI 'YOUR_PIXEL_ID' DENGAN PIXEL ID ANDA
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- ========== END META PIXEL CODE ========== -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,9 +298,9 @@
 
             <!-- Hero CTA -->
             <div class="flex flex-col items-center gap-4 animate-fade-up" style="animation-delay: 0.2s;">
-                <a href="#pricing" class="btn-primary px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full max-w-xs text-center">
+                <button onclick="trackAddToCart()" class="btn-primary px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full max-w-xs text-center cursor-pointer">
                     Amankan Slot
-                </a>
+                </button>
                 <p class="text-sm text-muted text-center">
                     Hanya 5 slot tersisa untuk bulan ini
                 </p>
@@ -705,9 +727,9 @@
                         </li>
                     </ul>
 
-                    <a href="https://afnastore.myr.id/pl/jasa-pembuatan-landing-page" class="btn-primary block text-center px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full">
+                    <button onclick="trackAddToCart()" class="btn-primary block text-center px-8 py-4 rounded-2xl text-white font-semibold text-lg w-full cursor-pointer">
                         Amankan Slot
-                    </a>
+                    </button>
                     <p class="text-sm text-muted text-center mt-4">
                         Pembayaran aman via Transfer Bank / E-Wallet
                     </p>
@@ -823,9 +845,9 @@
                     Tidak perlu tunggu lagi. Sekarang saatnya bisnis Anda tampil profesional dan bekerja otomatis meski Anda sedang istirahat.
                 </p>
 
-                <a href="#" class="btn-primary inline-block px-10 py-4 rounded-2xl text-white font-semibold text-lg">
+                <button onclick="trackAddToCart()" class="btn-primary inline-block px-10 py-4 rounded-2xl text-white font-semibold text-lg cursor-pointer">
                     Amankan Slot
-                </a>
+                </button>
                 <p class="text-sm text-muted mt-4">
                     Konsultasi gratis, tanpa komitmen
                 </p>
@@ -843,6 +865,26 @@
     </footer>
 
     <script>
+        // URL Pembayaran - GANTI DENGAN URL ANDA
+        const PAYMENT_URL = 'https://afnastore.myr.id/pl/jasa-pembuatan-landing-page';
+
+        // ========== FUNGSI TRACK ADD TO CART ==========
+        function trackAddToCart() {
+            // Fire Meta Pixel AddToCart Event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: 'Jasa Pembuatan Landing Page Profesional',
+                    content_ids: ['LP-001'],
+                    content_type: 'product',
+                    value: 75000,
+                    currency: 'IDR'
+                });
+            }
+            
+            // Redirect ke halaman pembayaran
+            window.location.href = PAYMENT_URL;
+        }
+
         // Initialize variables first
         let days = 2;
         let hours = 14;
